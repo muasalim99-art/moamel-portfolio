@@ -32,9 +32,15 @@ index.html
             justify-content: space-between;
             align-items: center;
         }
-        nav h1 {
-            font-size: 24px;
+        .brand h1 {
+            font-size: 32px;
             color: #ffffff;
+            line-height: 1.2;
+        }
+        .brand .job-title {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-top: 4px;
         }
         nav ul {
             list-style: none;
@@ -48,23 +54,6 @@ index.html
         }
         nav a:hover {
             color: #ffffff;
-        }
-        .hero {
-            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-            padding: 100px 20px;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #b0b0b0;
         }
         .btn {
             display: inline-block;
@@ -116,6 +105,43 @@ index.html
             font-size: 14px;
             color: #666;
             position: relative;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .post-card {
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+        .post-card .image-placeholder {
+            height: auto;
+            aspect-ratio: 1 / 1;
+        }
+        .post-card .post-info {
+            padding: 15px;
+            border-top: 1px solid #333;
+        }
+        .post-card .post-number {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .post-card h3 {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 4px;
         }
         .gallery-item p {
             padding: 20px;
@@ -183,13 +209,26 @@ index.html
             border-color: #ffffff;
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
         }
+        @media (max-width: 1024px) {
+            .posts-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
         @media (max-width: 768px) {
             nav ul {
                 gap: 15px;
                 font-size: 14px;
             }
-            .hero h2 {
-                font-size: 32px;
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .brand h1 {
+                font-size: 26px;
+            }
+            .posts-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .section h2 {
                 font-size: 28px;
@@ -204,10 +243,12 @@ index.html
     <header>
         <div class="container">
             <nav>
-                <h1>Moamel Salim</h1>
+                <div class="brand" id="home">
+                    <h1>Moamel Salim</h1>
+                    <p class="job-title">Dental Motion Graphics Specialist</p>
+                </div>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#videos" lang="ar">أعمالنا بالموشن</a></li>
                     <li><a href="#posts">Posts</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -215,17 +256,9 @@ index.html
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <h2>Dental Motion Graphics Specialist</h2>
-            <p>Professional dental motion graphics and visual content creation. Converting complex medical concepts into compelling visual stories for healthcare professionals and clinics across the Middle East.</p>
-            <a href="#videos" class="btn">View My Work</a>
-        </div>
-    </section>
-
     <section class="section" id="videos">
         <div class="container">
-            <h2>Video Gallery</h2>
+            <h2 lang="ar" dir="rtl">أعمالنا بالموشن</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <div class="video-placeholder">Video Placeholder 1</div>
@@ -258,23 +291,35 @@ index.html
     <section class="section" id="posts">
         <div class="container">
             <h2>Social Media Posts</h2>
-            <div class="gallery">
-                <div class="gallery-item">
+            <div class="posts-grid">
+                <article class="post-card">
                     <div class="image-placeholder">Post Placeholder 1</div>
-                    <p>Post Title Here</p>
-                </div>
-                <div class="gallery-item">
+                    <div class="post-info">
+                        <span class="post-number">Post 01</span>
+                        <h3>Post Title Here</h3>
+                    </div>
+                </article>
+                <article class="post-card">
                     <div class="image-placeholder">Post Placeholder 2</div>
-                    <p>Post Title Here</p>
-                </div>
-                <div class="gallery-item">
+                    <div class="post-info">
+                        <span class="post-number">Post 02</span>
+                        <h3>Post Title Here</h3>
+                    </div>
+                </article>
+                <article class="post-card">
                     <div class="image-placeholder">Post Placeholder 3</div>
-                    <p>Post Title Here</p>
-                </div>
-                <div class="gallery-item">
+                    <div class="post-info">
+                        <span class="post-number">Post 03</span>
+                        <h3>Post Title Here</h3>
+                    </div>
+                </article>
+                <article class="post-card">
                     <div class="image-placeholder">Post Placeholder 4</div>
-                    <p>Post Title Here</p>
-                </div>
+                    <div class="post-info">
+                        <span class="post-number">Post 04</span>
+                        <h3>Post Title Here</h3>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
